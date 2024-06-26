@@ -1,0 +1,156 @@
+﻿<Window x:Class="ProektFirstVariant.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProektFirstVariant"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Управление пользователями">
+                <StackPanel>
+                    <TextBox Name="UsernameTextBox" Margin="5">
+                        <TextBox.Style>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Foreground" Value="Gray"/>
+                                <Setter Property="Text" Value="Имя пользователя"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsKeyboardFocused" Value="True">
+                                        <Setter Property="Foreground" Value="Black"/>
+                                        <Setter Property="Text" Value=""/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+                    <PasswordBox Name="PasswordBox" Margin="5"/>
+                    <ComboBox Name="RoleComboBox" Margin="5">
+                        <ComboBoxItem Content="Администратор"/>
+                        <ComboBoxItem Content="Редактор"/>
+                    </ComboBox>
+                    <Button Content="Добавить пользователя" Click="AddUserButton_Click" Margin="5"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Управление картриджами">
+                <StackPanel>
+                    <TextBox Name="TypeTextBox" Margin="5">
+                        <TextBox.Style>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Foreground" Value="Gray"/>
+                                <Setter Property="Text" Value="Тип"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsKeyboardFocused" Value="True">
+                                        <Setter Property="Foreground" Value="Black"/>
+                                        <Setter Property="Text" Value=""/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+                    <TextBox Name="ModelTextBox" Margin="5">
+                        <TextBox.Style>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Foreground" Value="Gray"/>
+                                <Setter Property="Text" Value="Модель"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsKeyboardFocused" Value="True">
+                                        <Setter Property="Foreground" Value="Black"/>
+                                        <Setter Property="Text" Value=""/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+                    <TextBox Name="SerialNumberTextBox" Margin="5">
+                        <TextBox.Style>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Foreground" Value="Gray"/>
+                                <Setter Property="Text" Value="Серийный номер"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsKeyboardFocused" Value="True">
+                                        <Setter Property="Foreground" Value="Black"/>
+                                        <Setter Property="Text" Value=""/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+                    <DatePicker Name="InstallationDatePicker" Margin="5"/>
+                    <ComboBox Name="StatusComboBox" Margin="5">
+                        <ComboBoxItem Content="В использовании"/>
+                        <ComboBoxItem Content="Пустой"/>
+                        <ComboBoxItem Content="В ремонте"/>
+                        <ComboBoxItem Content="На складе"/>
+                        <ComboBoxItem Content="Не работает"/>
+                    </ComboBox>
+                    <TextBox Name="CommentsTextBox" Margin="5">
+                        <TextBox.Style>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Foreground" Value="Gray"/>
+                                <Setter Property="Text" Value="Комментарии"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsKeyboardFocused" Value="True">
+                                        <Setter Property="Foreground" Value="Black"/>
+                                        <Setter Property="Text" Value=""/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+                    <Button Content="Добавить картридж" Click="AddCartridgeButton_Click" Margin="5"/>
+                    <Button Content="Удалить картридж" Click="DeleteCartridgeButton_Click" Margin="5"/>
+                    <Button Content="Обновить статус картриджа" Click="UpdateCartridgeStatusButton_Click" Margin="5"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Поиск картриджей">
+                <StackPanel>
+                    <TextBox Name="SearchTextBox" Margin="5">
+                        <TextBox.Style>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Foreground" Value="Gray"/>
+                                <Setter Property="Text" Value="Поиск"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsKeyboardFocused" Value="True">
+                                        <Setter Property="Foreground" Value="Black"/>
+                                        <Setter Property="Text" Value=""/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+                    <Button Content="Поиск" Click="SearchButton_Click" Margin="5"/>
+                    <DataGrid Name="SearchResultsDataGrid" Margin="5"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="История картриджей">
+                <StackPanel>
+                    <TextBox Name="HistoryCartridgeIDTextBox" Margin="5">
+                        <TextBox.Style>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Foreground" Value="Gray"/>
+                                <Setter Property="Text" Value="ID картриджа"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsKeyboardFocused" Value="True">
+                                        <Setter Property="Foreground" Value="Black"/>
+                                        <Setter Property="Text" Value=""/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+                    <Button Content="Просмотреть историю" Click="ViewHistoryButton_Click" Margin="5"/>
+                    <DataGrid Name="HistoryDataGrid" Margin="5"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Аналитика">
+                <StackPanel>
+                    <DatePicker Name="StartDatePicker" Margin="5"/>
+                    <DatePicker Name="EndDatePicker" Margin="5"/>
+                    <Button Content="Просмотреть аналитику" Click="ViewAnalyticsButton_Click" Margin="5"/>
+                    <DataGrid Name="AnalyticsDataGrid" Margin="5"/>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
